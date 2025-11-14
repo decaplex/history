@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài cảm nhận - Trang Sử Vĩnh Hằng</title>
+    <link rel="stylesheet" href="overallstyling.css">
+    <link rel="stylesheet" href="navbutton.css">
+    <link rel="stylesheet" href="tieusustyle.css">
+    <link rel="stylesheet" href="baihatbox.css">
+    <link rel="stylesheet" href="baicamnhan.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <img src="logoweb.png" class="logoweb" width="600">
+      <h1 class="header-h1">BẢO TÀNG ONLINE VỀ CHỦ TỊCH HỒ CHÍ MINH VĨ ĐẠI</h1>
+      <h2 class="header-h2">12A02 - 2023-2026 - THPT Nguyễn Thượng Hiền - TPHCM</h2>
+    </div>
+  </header>
+
+  <nav>
+    <a class="nav-link" href="index.html">TRANG CHỦ</a>
+    <a> - </a>
+    <a class="nav-link" href="tieusu.html">TIỂU SỬ</a>
+    <a> - </a>
+    <a class="nav-link" href="mautruyen.html">MẪU TRUYỆN VỀ BÁC</a>
+    <a> - </a>
+    <a class="nav-link" href="conglao.html">CÔNG LAO</a>
+    <a> - </a>
+    <a class="nav-link" href="caunoi.html">CÂU NÓI CỦA BÁC</a>
+    <a> - </a>
+    <a class="nav-link" href="baihat.html">BÀI HÁT VỀ BÁC</a>
+    <a> - </a>
+    <a class="nav-link" class="active" href="baicamnhan.html">BÀI CẢM NHẬN CỦA GIỚI TRẺ</a>
+    <a> - </a>
+    <a class="nav-link" href="phim.html">PHIM</a>
+  </nav>
+
+  <main id="content">
+    <h1 class="main-intro">BÀI CẢM NHẬN CỦA GIỚI TRẺ ĐỐI VỚI BÁC HỒ</h1>
+    <img src="mainh1border.png" class="mainborder">
+    <div class="baicamnhancontainer">
+      <form class="comment-form" id="commentForm">
+        <div class="form-group">
+          <label for="name">Tên của bạn</label>
+          <input type="text" id="name" placeholder="Nhập tên" required>
+        </div>
+        <div class="form-group">
+          <label for="comment">Cảm nhận của bạn</label>
+          <textarea id="comment" placeholder="Chia sẻ cảm nhận của bạn." required></textarea>
+        </div>
+        <button type="submit" class="btn">💬 Đăng tải</button>
+      </form>
+      <section class="comments-section">
+        <div class="comments-header">
+          <div class="comments-count" id="commentsCount">Bình Luận (0)</div>
+          <!-- <button class="clear-btn" id="clearBtn">Xoá Tất Cả</button>-->
+          </div>
+          <div id="commentsContainer"></div>
+        </section>
+    </div>
+  </main>
+  
+      <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { 
+            getFirestore, 
+            collection, 
+            addDoc, 
+            onSnapshot, 
+            query, 
+            orderBy, 
+            deleteDoc,
+            doc,
+            getDocs,
+            serverTimestamp
+        } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyC--wbQDeOGustth3A9byoW3Bn_feB-giA",
+            authDomain: "comme-4698a.firebaseapp.com",
+            projectId: "comme-4698a",
+            storageBucket: "comme-4698a.firebasestorage.app",
+            messagingSenderId: "734774176819",
+            appId: "1:734774176819:web:71a331844c1a3eb70d4746",
+            measurementId: "G-NC9BSSB44L"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        
+        console.log("Firebase initialized successfully!");
+        
+        // Make these available globally
+        window.firebaseApp = app;
+        window.db = db;
+        window.firestoreFunctions = {
+            collection, 
+            addDoc, 
+            onSnapshot, 
+            query, 
+            orderBy, 
+            deleteDoc,
+            doc,
+            getDocs,
+            serverTimestamp
+        };
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const commentForm = document.getElementById('commentForm');
+            const commentsContainer = document.getElementById('commentsContainer');
+            const commentsCount = document.getElementById('commentsCount');
+            const clearBtn = document.getElementById('clearBtn');
+            
+            let isFirebaseReady = false;
+            
+            // Check if Firebase is ready
+            const checkFirebaseReady = setInterval(() => {
+                if (window.db && window.firestoreFunctions) {
+                    isFirebaseReady = true;
+                    clearInterval(checkFirebaseReady);
+                    initializeApp();
+                }
+            }, 100);
+            
+            // Set timeout fallback
+            setTimeout(() => {
+                if (!isFirebaseReady) {
+                    clearInterval(checkFirebaseReady);
+                    commentsContainer.innerHTML = '<div class="no-comments">Firebase connection failed. Please refresh the page.</div>';
+                    console.error("Firebase initialization timeout");
+                }
+            }, 5000);
+            
+            function initializeApp() {
+                console.log("Initializing Firebase app...");
+                
+                // Load comments from Firebase when page loads
+                loadCommentsFromFirebase();
+                
+                // Handle form submission
+                commentForm.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    
+                    const name = document.getElementById('name').value.trim();
+                    const commentText = document.getElementById('comment').value.trim();
+                    
+                    if (name && commentText) {
+                        await addCommentToFirebase(name, commentText);
+                        commentForm.reset();
+                    }
+                });
+                
+                // Clear all comments
+                clearBtn.addEventListener('click', function() {
+                    if (confirm('Are you sure you want to delete all comments? This will remove comments for ALL users.')) {
+                        clearAllComments();
+                    }
+                });
+            }
+            
+            // Add a new comment to Firebase
+            async function addCommentToFirebase(name, text) {
+                try {
+                    const commentData = {
+                        name: name,
+                        text: text,
+                        timestamp: window.firestoreFunctions.serverTimestamp(),
+                        date: new Date().toLocaleString()
+                    };
+                    
+                    await window.firestoreFunctions.addDoc(
+                        window.firestoreFunctions.collection(window.db, "comments"), 
+                        commentData
+                    );
+                    
+                    console.log("Comment added to Firebase successfully!");
+                } catch (error) {
+                    console.error("Error adding comment: ", error);
+                    alert("Error posting comment. Please try again.");
+                }
+            }
+            
+            // Load and display comments from Firebase
+            function loadCommentsFromFirebase() {
+                try {
+                    const q = window.firestoreFunctions.query(
+                        window.firestoreFunctions.collection(window.db, "comments"), 
+                        window.firestoreFunctions.orderBy("timestamp", "desc")
+                    );
+                    
+                    window.firestoreFunctions.onSnapshot(q, (querySnapshot) => {
+                        const comments = [];
+                        querySnapshot.forEach((doc) => {
+                            const data = doc.data();
+                            comments.push({
+                                id: doc.id,
+                                name: data.name || "Anonymous",
+                                text: data.text,
+                                date: data.date || "Recently"
+                            });
+                        });
+                        
+                        displayComments(comments);
+                    }, (error) => {
+                        console.error("Error loading comments: ", error);
+                        commentsContainer.innerHTML = '<div class="no-comments">Error loading comments. Please check Firebase configuration.</div>';
+                    });
+                } catch (error) {
+                    console.error("Error setting up Firestore listener: ", error);
+                    commentsContainer.innerHTML = '<div class="no-comments">Firebase configuration error. Please check the console.</div>';
+                }
+            }
+            
+            // Display comments in the UI
+            function displayComments(comments) {
+                if (comments.length === 0) {
+                    commentsContainer.innerHTML = '<div class="no-comments">No comments yet. Be the first to share your thoughts!</div>';
+                    commentsCount.textContent = 'Comments (0)';
+                    return;
+                }
+                
+                commentsCount.textContent = `Comments (${comments.length})`;
+                
+                commentsContainer.innerHTML = comments.map(comment => `
+                    <div class="comment" data-id="${comment.id}">
+                        <div class="comment-header">
+                            <div class="comment-author">${escapeHtml(comment.name)}</div>
+                            <div class="comment-date">${comment.date}</div>
+                        </div>
+                        <div class="comment-text">${escapeHtml(comment.text)}</div>
+                    </div>
+                `).join('');
+            }
+            
+            // Clear all comments from Firebase
+            async function clearAllComments() {
+                try {
+                    const querySnapshot = await window.firestoreFunctions.getDocs(
+                        window.firestoreFunctions.collection(window.db, "comments")
+                    );
+                    
+                    const deletePromises = [];
+                    querySnapshot.forEach((document) => {
+                        deletePromises.push(
+                            window.firestoreFunctions.deleteDoc(
+                                window.firestoreFunctions.doc(window.db, "comments", document.id)
+                            )
+                        );
+                    });
+                    
+                    await Promise.all(deletePromises);
+                    console.log("All comments deleted successfully");
+                } catch (error) {
+                    console.error("Error deleting comments: ", error);
+                    alert("Error deleting comments. Please try again.");
+                }
+            }
+            
+            // Helper function to prevent XSS
+            function escapeHtml(unsafe) {
+                return unsafe
+                    .replace(/&/g, "&amp;")
+                    .replace(/</g, "&lt;")
+                    .replace(/>/g, "&gt;")
+                    .replace(/"/g, "&quot;")
+                    .replace(/'/g, "&#039;");
+            }
+        });
+    </script>
+
+  <footer>
+    <img src="logo-1.png" class="logonth">
+    <p>Tập thể lớp 12A02 2023-2026 - THPT Nguyễn Thượng Hiền.</p>
+  </footer>
+  
+</body>
+</html>

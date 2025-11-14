@@ -1,0 +1,191 @@
+/* Container */
+.timeline {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  margin: 30px auto;
+}
+
+/* Hide radio inputs */
+.timeline input[type="radio"] {
+  display: none;
+}
+
+/* Timeline bar */
+.timeline-bar {
+  position: absolute;
+  top: 12px;
+  width: 100%;
+  height: 6px;
+  background: #580e0e;
+  z-index: 0;
+}
+
+/* Steps container */
+.timeline-steps {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 30px;
+}
+
+/* Each step */
+.step {
+  text-align: center;
+  cursor: pointer;
+}
+
+.step p {
+  margin-top: 10px;
+  color: #580e0e;
+  font-weight: bold;
+  width: 120px;
+}
+
+.circle {
+  width: 20px;
+  height: 20px;
+  border: 6px solid #580e0e;
+  border-radius: 50%;
+  display: inline-block;
+  background-color: #fff;
+  transition: 0.3s ease;
+}
+
+/* When checked, make circle filled */
+#event1:checked~.timeline-steps label[for="event1"] .circle,
+#event2:checked~.timeline-steps label[for="event2"] .circle,
+#event3:checked~.timeline-steps label[for="event3"] .circle,
+#event4:checked~.timeline-steps label[for="event4"] .circle,
+#event5:checked~.timeline-steps label[for="event5"] .circle,
+#event6:checked~.timeline-steps label[for="event6"] .circle,
+#event7:checked~.timeline-steps label[for="event7"] .circle {
+  background-color: #ffbf00;
+  transform: scale(1.2);
+}
+
+/* Content area */
+.timeline-content {
+  position: relative;
+  min-height: auto;
+  margin-top: 30px;
+  text-align: justify;
+
+}
+
+/* Hide all content by default */
+.tscontent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease-out;
+  width: 100%;
+  overflow-y: visible;
+  overflow-x: hidden;
+  height: 1200px;
+  pointer-events: none;
+}
+
+.tscontentpara {
+  line-height:1.45;
+}
+
+.tscontentdichuc {
+  line-height:1.6;
+  text-align:center;
+}
+
+.tscontentdichucstar {
+  line-height:1.6;
+  text-align:center;
+  letter-spacing: 1em;
+}
+
+.tscontentdichucdesc {
+  line-height:1.6;
+  text-align:left;
+  text-indent:30px;
+}
+
+.tscontentdichucsign {
+  line-height:1.6;
+  text-align:right;
+}
+
+
+/* Fade in the active one */
+#event1:checked~.timeline-content .c1,
+#event2:checked~.timeline-content .c2,
+#event3:checked~.timeline-content .c3,
+#event4:checked~.timeline-content .c4,
+#event5:checked~.timeline-content .c5,
+#event6:checked~.timeline-content .c6,
+#event7:checked~.timeline-content .c7 {
+  opacity: 1;
+  transform: translateY(0);
+  position: relative;
+  /* Keep it absolute! */
+  pointer-events: all;
+  /* Allow interaction with active content */
+}
+
+/* Styling for headings */
+.tscontent h3 {
+  color: #8e1414;
+  font-size: 1.8em;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #580e0e;
+}
+
+.tscontent h2 {
+  color: #b00f0f;
+  font-size: 2.4rem;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.tscontent h4 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #8e1414;
+  text-decoration: underline;
+}
+
+.tscontentlink {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: right;
+  color: #cb1111;
+  font-style: italic;
+}
+
+.tscontent>img {
+  margin: auto;
+  display: block;
+  padding-bottom: 20px;
+}
+
+/* Optional: subtle glowing effect */
+.circle,
+.step p {
+  transition: all 0.3s ease;
+}
+
+.step:hover .circle {
+  box-shadow: 0 0 15px #881212;
+  transition: scale(0.95) 0.3s ease;
+}
+
+.step:hover p {
+  color: #a60303;
+}
+
+@media (max-width:900px) {
+  .tscontent {
+    height: 600px;
+  }
+}
