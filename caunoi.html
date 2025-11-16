@@ -23,29 +23,64 @@
 <body>
   <header>
     <div class="header-container">
-      <img src="logoweb.png" class="logoweb" width="600">
+      <a href="https://thptnguyenthuonghien.hcm.edu.vn/homegd2" target="_blank"><img src="logoweb2.png" class="logoweb" width="800"></a>
       <h1 class="header-h1">BẢO TÀNG ONLINE VỀ CHỦ TỊCH HỒ CHÍ MINH VĨ ĐẠI</h1>
       <h2 class="header-h2">12A02 - 2023-2026 - THPT Nguyễn Thượng Hiền - TPHCM</h2>
     </div>
   </header>
 
-  <nav>
-    <a class="nav-link" href="index.html">TRANG CHỦ</a>
-    <a> - </a>
-    <a class="nav-link" href="tieusu.html">TIỂU SỬ</a>
-    <a> - </a>
-    <a class="nav-link" href="mautruyen.html">MẪU TRUYỆN VỀ BÁC</a>
-    <a> - </a>
-    <a class="nav-link" href="conglao.html">CÔNG LAO</a>
-    <a> - </a>
-    <a class="nav-link" class="active" href="caunoi.html">CÂU NÓI CỦA BÁC</a>
-    <a> - </a>
-    <a class="nav-link" href="baihat.html">BÀI HÁT VỀ BÁC</a>
-    <a> - </a>
-    <a class="nav-link" href="baicamnhan.html">BÀI CẢM NHẬN CỦA GIỚI TRẺ</a>
-    <a> - </a>
-    <a class="nav-link" href="phim.html">PHIM</a>
-  </nav>
+    <nav>
+        <a class="nav-link" href="index.html">TRANG CHỦ</a>
+        <a> - </a>
+        <div class="nav-dropdown">
+            <a class="nav-link">TIỂU SỬ VÀ SỰ NGHIỆP</a>
+            <div class="dropdown-menu">
+                <a href="sinhthoi.html" class="dropdown-item">Sinh thời Bác Hồ</a>
+                <a href="sunghiep.html" class="dropdown-item">Sự nghiệp cách mạng</a>
+                <a href="hohangbac.html" class="dropdown-item">Họ hàng của Bác</a>
+                <a href="tengoibac.html" class="dropdown-item">Các tên gọi của Bác</a>
+            </div>
+        </div>
+        <a> - </a>
+        <div class="nav-dropdown">
+            <a class="nav-link">SỰ NGHIỆP SÁNG TÁC</a>
+            <div class="dropdown-menu">
+                <a href="thobacho.html" class="dropdown-item">Thơ ca</a>
+                <a href="tacphamkhac.html"  class="dropdown-item">Các tác phẩm khác</a>
+                <a href="caunoi.html" class="active" class="dropdown-item">Câu nói của Bác</a>
+            </div>
+        </div>
+        <a> - </a>
+        <div class="nav-dropdown">
+            <a class="nav-link">TÁC PHẨM VỀ BÁC</a>
+            <div class="dropdown-menu">
+                <a href="mautruyen.html" class="dropdown-item">Mẩu truyện về Bác</a>
+                <a href="thocavebac.html" class="dropdown-item">Thơ ca về Bác</a>
+            </div>
+        </div>
+        <a> - </a>
+        <div class="nav-dropdown">
+            <a class="nav-link">BÀI HÁT</a>
+            <div class="dropdown-menu">
+                <a href="baihat.html" class="dropdown-item">Đối với người dân</a>
+                <a href="baihatthieunhi.html" class="dropdown-item">Đối với thiếu nhi</a>
+                <a href="baihatngoainuoc.html" class="dropdown-item">Bài hát ngoài nước</a>
+            </div>
+        </div>
+        <a> - </a>
+        <div class="nav-dropdown">
+            <a class="nav-link">ẢNH HƯỞNG</a>
+            <div class="dropdown-menu">
+                <a href="tutuong.html" class="dropdown-item">Tư tưởng Hồ Chí Minh</a>
+                <a href="baihocgt.html" class="dropdown-item">Bài học và giá trị</a>
+                <a href="conglao.html" class="dropdown-item">Công lao của Bác</a>
+            </div>
+        </div>
+        <a> - </a>
+        <a class="nav-link" href="baicamnhan.html">BÀI CẢM NHẬN CỦA GIỚI TRẺ</a>
+        <a> - </a>
+        <a class="nav-link" href="phim.html">PHIM</a>
+    </nav>
 
   <main id="content">
     <h1 class="main-intro">CÂU NÓI HAY VÀ SÂU ĐẬM CỦA BÁC HỒ</h1>
@@ -255,8 +290,7 @@
   <script src="baicamnhanscript.js"></script>
 
   <footer>
-    <img src="logo-1.png" class="logonth">
-    <p>Tập thể lớp 12A02 2023-2026 - THPT Nguyễn Thượng Hiền.</p>
+    <p>Tập thể lớp 12A02 - 2023-2026 - THPT Nguyễn Thượng Hiền.</p>
   </footer>
   <script>// References to DOM Element 
     const prevBtn = document.querySelector("#prev-btn");
