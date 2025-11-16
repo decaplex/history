@@ -1,6 +1,7 @@
 /* Full background image */
-html,body {
-	height:100%;
+html,
+body {
+	height: 100%;
 }
 
 body {
@@ -20,7 +21,8 @@ body {
 main {
 	max-width: 1200px !important;
 	margin: 25px auto;
-	background: rgba(255, 255, 255, 0.97); /* transparent white box */
+	background: rgba(255, 255, 255, 0.97);
+	/* transparent white box */
 	padding-top: 30px;
 	padding-left: 50px;
 	padding-right: 50px;
@@ -30,7 +32,7 @@ main {
 	opacity: 1;
 	transition: opacity 0.5s ease;
 	flex: 1;
-	position:relative;
+	position: relative;
 
 }
 
@@ -44,9 +46,43 @@ main p {
 	line-height: 1.5;
 }
 
+.maindesp {
+	line-height: 1.45;
+}
+
+.maindesh2 {
+	color: #8e1414;
+	font-size: 1.8em;
+	padding-bottom: 5px;
+	border-bottom: 2px solid #580e0e;
+}
+
+.maindesh3 {
+	font-size: 1.5rem;
+	font-weight: bold;
+	color: #8e1414;
+	text-decoration: underline;
+}
+
+.mainlink {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: right;
+  color: #cb1111;
+  font-style: italic;
+}
+
+.mainlinlist {
+  font-size: 18px;
+  font-weight: bold;
+  color: #cb1111;
+  font-style: italic;
+}
+
 .main-intro {
 	font-size: 250%;
 	font-weight: bold;
+	text-transform: uppercase;
 }
 
 main.fade-out {
@@ -55,6 +91,21 @@ main.fade-out {
 
 #content {
 	transition: opacity 0.4s ease;
+}
+.normalpage {
+	width:1100px;
+	height:auto;
+	text-align:justify;
+	padding-left:20px;
+	padding-right:20px;
+	padding-bottom:20px;
+	margin:auto;
+}
+
+.normalpage>img {
+  margin: auto;
+  display: block;
+  padding-bottom: 20px;
 }
 
 .fade-out {
@@ -68,29 +119,29 @@ main.fade-out {
 }
 
 .creditsbox {
-	width:800px;
-	height:200px;
+	width: 800px;
+	height: 200px;
 	text-align: left;
-	margin:auto;
-	padding-bottom:0px;
+	margin: auto;
+	padding-bottom: 0px;
 }
 
 .ytdesc {
-	width:1000px;
-	height:300px;
+	width: 1000px;
+	height: 300px;
 	text-align: left;
-	margin:auto;
-	padding-bottom:20px;
+	margin: auto;
+	padding-bottom: 20px;
 }
 
 .ytthumb {
-	width:1000px;
+	width: 1000px;
 	transition: ease 0.3s;
-	margin:auto;
+	margin: auto;
 }
 
 .ytthumb:hover {
-	width:975px;
+	width: 975px;
 }
 
 /* Header */
@@ -106,12 +157,14 @@ header {
 	align-items: center;
 	justify-content: space-between;
 	padding: 0 2vw;
-	flex-wrap: wrap; /* allows wrapping on smaller screens */
+	flex-wrap: wrap;
+	/* allows wrapping on smaller screens */
 	text-align: center;
 }
 
 .header-h1 {
-	font-size: clamp(1.2rem, 2vw, 2.4rem); /* scales with screen size */
+	font-size: clamp(1.2rem, 2vw, 2.4rem);
+	/* scales with screen size */
 	margin: 0;
 	color: white;
 	text-align: center;
@@ -119,7 +172,8 @@ header {
 }
 
 .header-h2 {
-	font-size: clamp(0.7rem, 2vw, 1.4rem); /* scales with screen size */
+	font-size: clamp(0.7rem, 2vw, 1.4rem);
+	/* scales with screen size */
 	margin: 0;
 	color: white;
 	text-align: center;
@@ -127,25 +181,135 @@ header {
 }
 
 .logonth {
-	width: clamp(80px, 5vw, 100px); /* minimum 50px, scales with viewport, max 90px */
+	width: clamp(80px, 5vw, 100px);
+	/* minimum 50px, scales with viewport, max 90px */
 	height: auto;
 	margin-right: 15px;
 }
 
 .logoweb {
-	width: clamp(100px, 20vw, 300px); /* minimum 50px, scales with viewport, max 90px */
+	width: clamp(100px, 15vw, 350px);
+	/* minimum 50px, scales with viewport, max 90px */
 	height: auto;
 	margin-right: 15px;
 }
 
-/* Navigation */
+/* Navigation 
 nav {
 	background-color: rgba(246, 169, 148, 0.95);
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
 	padding: 10px 0;
+}*/
+
+/* Navigation - Updated with Dropdown */
+nav {
+	background-color: rgba(246, 169, 148, 0.95);
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	padding: 10px 0;
+	position: relative;
 }
+
+/* Base nav link styles */
+.nav-link {
+	color: #000;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 15px;
+	padding: 10px 20px;
+	transition: 0.5s ease;
+	position: relative;
+	display: inline-block;
+}
+
+.nav-link:hover {
+	color: #c62828;
+	background-color: rgba(246, 197, 182, 0.95);
+}
+
+/* Dropdown container */
+.nav-dropdown {
+	position: relative;
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	background-color: rgba(255, 255, 255, 0.98);
+	min-width: 180px;
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+	border-radius: 4px;
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(-10px);
+	transition: all 0.3s ease;
+	z-index: 1000;
+	padding: 10px 0;
+}
+
+/* Show dropdown on hover */
+.nav-dropdown:hover .dropdown-menu {
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(0);
+}
+
+/* Dropdown items */
+.dropdown-item {
+	display: block;
+	padding: 10px 20px;
+	color: #333;
+	text-decoration: none;
+	font-size: 16px;
+	transition: all 0.3s ease;
+	border-left: 3px solid transparent;
+}
+
+.dropdown-item:hover {
+	background-color: rgba(138, 7, 33, 0.1);
+	color: #8a0721;
+	border-left-color: #8a0721;
+	padding-left: 25px;
+}
+
+/* Dropdown section titles */
+.dropdown-section {
+	padding: 8px 20px;
+	font-weight: bold;
+	color: #8a0721;
+	font-size: 15px;
+	border-bottom: 1px solid rgba(138, 7, 33, 0.2);
+	margin-bottom: 5px;
+}
+
+/* Separator in dropdown */
+.dropdown-separator {
+	height: 1px;
+	background-color: rgba(138, 7, 33, 0.2);
+	margin: 8px 0;
+}
+
+/* Arrow indicator for dropdown */
+.nav-dropdown>.nav-link::after {
+	content: " ▼";
+	font-size: 15px;
+	margin-left: 5px;
+}
+
+/* Current page indicator */
+.active {
+	color: #8a0721;
+	display:block;
+	padding: 10px 20px;
+	cursor:not-allowed;
+	pointer-events: none;
+}
+
 
 div.gallery {
 	display: flex;
@@ -179,7 +343,7 @@ nav a {
 	color: #000;
 	text-decoration: none;
 	font-weight: bold;
-	font-size: 17px;
+	font-size: 15px;
 	padding: 10px;
 }
 
@@ -191,7 +355,7 @@ nav a {
 	color: #c62828;
 	font-size: 15px;
 	background-color: rgba(246, 197, 182, 0.95);
-	padding: 12px;
+	padding: 10px;
 }
 
 /* Footer */

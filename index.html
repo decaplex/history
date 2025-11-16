@@ -7,7 +7,7 @@
   <title>Trang chủ - Trang Sử Vĩnh Hằng</title>
   <link rel="stylesheet" href="overallstyling.css">
   <link rel="stylesheet" href="navbutton.css">
-  <link rel="stylesheet" href="tieusustyle.css">
+  <link rel="stylesheet" href="tieusumew.css">
   <link rel="stylesheet" href="baihatbox.css">
   <link rel="stylesheet" href="baicamnhan.css">
   <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
@@ -21,7 +21,7 @@
 <body>
   <header>
     <div class="header-container">
-      <img src="logoweb.png" class="logoweb" width="600">
+      <a href="https://thptnguyenthuonghien.hcm.edu.vn/homegd2" target="_blank"><img src="logoweb2.png" class="logoweb" width="800"></a>
       <h1 class="header-h1">BẢO TÀNG ONLINE VỀ CHỦ TỊCH HỒ CHÍ MINH VĨ ĐẠI</h1>
       <h2 class="header-h2">12A02 - 2023-2026 - THPT Nguyễn Thượng Hiền - TPHCM</h2>
     </div>
@@ -30,15 +30,50 @@
   <nav>
     <a class="nav-link" class="active" href="index.html">TRANG CHỦ</a>
     <a> - </a>
-    <a class="nav-link" href="tieusu.html">TIỂU SỬ</a>
+    <div class="nav-dropdown">
+      <a class="nav-link">TIỂU SỬ VÀ SỰ NGHIỆP</a>
+      <div class="dropdown-menu">
+        <a href="sinhthoi.html" class="dropdown-item">Sinh thời Bác Hồ</a>
+        <a href="sunghiep.html" class="dropdown-item">Sự nghiệp cách mạng</a>
+        <a href="hohangbac.html" class="dropdown-item">Họ hàng của Bác</a>
+        <a href="tengoibac.html" class="dropdown-item">Các tên gọi của Bác</a>
+      </div>
+    </div>
     <a> - </a>
-    <a class="nav-link" href="mautruyen.html">MẪU TRUYỆN VỀ BÁC</a>
+    <div class="nav-dropdown">
+      <a class="nav-link">SỰ NGHIỆP SÁNG TÁC</a>
+      <div class="dropdown-menu">
+        <a href="thobacho.html" class="dropdown-item">Thơ ca</a>
+        <a href="tacphamkhac.html" class="dropdown-item">Các tác phẩm khác</a>
+        <a href="caunoi.html" class="dropdown-item">Câu nói của Bác</a>
+      </div>
+    </div>
     <a> - </a>
-    <a class="nav-link" href="conglao.html">CÔNG LAO</a>
+    <div class="nav-dropdown">
+      <a class="nav-link">TÁC PHẨM VỀ BÁC</a>
+      <div class="dropdown-menu">
+        <a href="mautruyen.html" class="dropdown-item">Mẩu truyện về Bác</a>
+        <a href="thocavebac.html" class="dropdown-item">Thơ ca về Bác</a>
+      </div>
+    </div>
     <a> - </a>
-    <a class="nav-link" href="caunoi.html">CÂU NÓI CỦA BÁC</a>
+    <div class="nav-dropdown">
+      <a class="nav-link">BÀI HÁT</a>
+      <div class="dropdown-menu">
+        <a href="baihat.html" class="dropdown-item">Đối với người dân</a>
+        <a href="baihatthieunhi.html" class="dropdown-item">Đối với thiếu nhi</a>
+        <a href="baihatngoainuoc.html" class="dropdown-item">Bài hát ngoài nước</a>
+      </div>
+    </div>
     <a> - </a>
-    <a class="nav-link" href="baihat.html">BÀI HÁT VỀ BÁC</a>
+    <div class="nav-dropdown">
+      <a class="nav-link">ẢNH HƯỞNG</a>
+      <div class="dropdown-menu">
+        <a href="tutuong.html" class="dropdown-item">Tư tưởng Hồ Chí Minh</a>
+        <a href="baihocgt.html" class="dropdown-item">Bài học và giá trị</a>
+        <a href="conglao.html" class="dropdown-item">Công lao của Bác</a>
+      </div>
+    </div>
     <a> - </a>
     <a class="nav-link" href="baicamnhan.html">BÀI CẢM NHẬN CỦA GIỚI TRẺ</a>
     <a> - </a>
@@ -61,13 +96,21 @@
       một
       theo thời gian.</p>
     <img src="mainh1border.png" class="mainborder">
-    <h1>CHUYÊN MỤC</h1>
+    <h1>CHUYÊN MỤC CHÍNH</h1>
     <div class="navbox">
       <div class="container">
-        <a href="tieusu.html" class="img-link">
-          <img src="tieusuimg.png" class="image">
+        <a href="sunghiep.html" class="img-link">
+          <img src="sunghiepimg.png" class="image">
           <div class="overlay">
-            <div class="text">TIỂU SỬ</div>
+            <div class="text">Sự nghiệp cách mạng của Bác</div>
+          </div>
+        </a>
+      </div>
+      <div class="container">
+        <a href="thobacho.html" class="img-link">
+          <img src="thobachoimg.png" class="image">
+          <div class="overlay">
+            <div class="text">Sự nghiệp sáng tác thơ ca của Bác</div>
           </div>
         </a>
       </div>
@@ -75,15 +118,7 @@
         <a href="mautruyen.html" class="img-link">
           <img src="mautruyenimg.png" class="image">
           <div class="overlay">
-            <div class="text">MẪU TRUYỆN</div>
-          </div>
-        </a>
-      </div>
-      <div class="container">
-        <a href="conglao.html" class="img-link">
-          <img src="conglaoimg.png" class="image">
-          <div class="overlay">
-            <div class="text">CÔNG LAO</div>
+            <div class="text">Mẩu truyện về Bác</div>
           </div>
         </a>
       </div>
@@ -92,18 +127,18 @@
     <br>
     <div class="navbox">
       <div class="container">
-        <a href="caunoi.html" class="img-link">
-          <img src="caunoiimg.png" class="image">
+        <a href="baihat.html" class="img-link">
+          <img src="baihatimg.png" class="image">
           <div class="overlay">
-            <div class="text">CÂU NÓI</div>
+            <div class="text">Bài hát về Bác</div>
           </div>
         </a>
       </div>
       <div class="container">
-        <a href="baihat.html" class="img-link">
-          <img src="baihatimg.png" class="image">
+        <a href="tutuong.html" class="img-link">
+          <img src="conglaoimg.png" class="image">
           <div class="overlay">
-            <div class="text">BÀI HÁT</div>
+            <div class="text">Ảnh hưởng từ tư tưởng của Bác</div>
           </div>
         </a>
       </div>
@@ -142,16 +177,17 @@
     <img src="mainh1border.png" class="mainborder">
     <h1>CHÚNG EM XIN CẢM ƠN</h1>
     <div class="creditsbox">
-      <p><span style="font-weight:bold">Cô Nguyễn Thị Bắc - Giáo viên dạy môn Lịch sử </span> đã cố vấn, định hướng cho dự án của chúng em được hoàn thiện. </p>
-      <p><span style="font-weight:bold">Cô Nguyễn Thị Phương Bắc - Giáo viên chủ nhiệm </span>đã hỗ trợ cho chúng em trong suốt quá trình xây dựng dự án.</p>
+      <p><span style="font-weight:bold">Cô Nguyễn Thị Bắc - Giáo viên dạy môn Lịch sử </span> đã cố vấn, định hướng cho
+        dự án của chúng em được hoàn thiện. </p>
+      <p><span style="font-weight:bold">Cô Nguyễn Thị Phương Bắc - Giáo viên chủ nhiệm </span>đã hỗ trợ cho chúng em
+        trong suốt quá trình xây dựng dự án.</p>
     </div>
     <br>
   </main>
   <script type="module" src="baicamnhanbackend.js"></script>
   <script src="baicamnhanscript.js"></script>
   <footer>
-    <img src="logo-1.png" class="logonth">
-    <p>Tập thể lớp 12A02 2023-2026 - THPT Nguyễn Thượng Hiền.
+    <p>Tập thể lớp 12A02 - 2023-2026 - THPT Nguyễn Thượng Hiền
   </footer>
 </body>
 
