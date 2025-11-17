@@ -123,7 +123,15 @@ main.fade-out {
 	height: 200px;
 	text-align: left;
 	margin: auto;
-	padding-bottom: 0px;
+	padding-bottom: 50px;
+}
+
+.creditsboard {
+	width:80%;
+	height:auto;
+	display:flex;
+	margin:auto;
+	border-radius:0.5rem;
 }
 
 .ytdesc {
@@ -188,7 +196,7 @@ header {
 }
 
 .logoweb {
-	width: clamp(100px, 15vw, 350px);
+	width: clamp(200px, 20vw, 500px);
 	/* minimum 50px, scales with viewport, max 90px */
 	height: auto;
 	margin-right: 15px;
